@@ -16,7 +16,7 @@
     /* Slides */
     .mySlides {
       display: none;
-      position: relative;
+      position: relative; /* Create a stacking context for child elements */
       text-align: center;
     }
 
@@ -106,6 +106,7 @@
       background-color: rgba(0, 0, 0, 0.5); /* Optional background for better visibility */
       color: white;
       border-radius: 5px;
+      z-index: 20; /* Ensure it is above the image */
     }
 
     /* Year text */
@@ -118,6 +119,7 @@
       background-color: rgba(0, 0, 0, 0.5); /* Optional background for better visibility */
       color: white;
       border-radius: 5px;
+      z-index: 20; /* Ensure it is above the image */
     }
   </style>
 </head>
