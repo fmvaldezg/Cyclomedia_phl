@@ -4,112 +4,88 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     * {box-sizing: border-box}
-    body {font-family: Verdana, sans-serif; margin:0}
-    
+    body {font-family: Verdana, sans-serif; margin: 0}
+
+    /* Slideshow container */
+    .slideshow-container {
+      max-width: 640px; /* Set width similar to video thumbnail */
+      position: relative;
+      margin: auto;
+    }
+
+    /* Slides */
     .mySlides {
       display: none;
       position: relative;
       text-align: center;
-      height: 450px; /* Fixed height container including caption */
     }
 
-    a {
-      color:#f5f4f2;
-    }
-    
-    /* Image styling for consistent height */
+    /* Image container */
     .slide-image-container {
       position: relative;
-      height: 400px; /* Fixed height for image container */
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0 auto;
     }
-    
-    .slide-image {
-      max-height: 100%;
-      max-width: 100%;
-      object-fit: contain; /* Maintains aspect ratio */
-      display: block;
-    }
 
-    /* Slideshow container */
-    .slideshow-container {
-      max-width: 600px;
-      position: relative;
-      margin: auto;
+    .slide-image {
+      max-width: 100%;
+      height: auto; /* Maintain aspect ratio */
+      object-fit: contain;
+      display: block;
     }
 
     /* Next & previous buttons */
     .prev, .next {
       cursor: pointer;
       position: absolute;
-      top: 200px; /* Fixed position at exact center of image container */
+      top: 50%;
+      transform: translateY(-50%);
       width: auto;
-      padding: 16px;
-      margin-top: -22px;
+      padding: 10px; /* Adjust padding for smaller size */
       color: white;
       font-weight: bold;
-      font-size: 18px;
+      font-size: 18px; /* Adjust font size */
       transition: 0.6s ease;
-      border-radius: 0 3px 3px 0;
+      border-radius: 0 5px 5px 0;
       user-select: none;
-      background-color: rgba(0,0,0,0.3); /* Added slight background for visibility */
-      z-index: 10; /* Ensure buttons are above other elements */
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 10;
     }
 
-    /* Position the "next button" to the right */
     .next {
       right: 0;
-      border-radius: 3px 0 0 3px;
+      border-radius: 5px 0 0 5px;
     }
 
-    /* On hover, add a black background color with a little bit see-through */
     .prev:hover, .next:hover {
-      background-color: rgba(0,0,0,0.8);
+      background-color: rgba(0, 0, 0, 0.8);
     }
 
     /* Caption text */
     .text {
       color: #f5f4f2;
-      font-size: 12px;
-      padding: 5px 20px;
+      font-size: 14px; /* Adjust font size */
+      padding: 8px 16px; /* Adjust padding */
       width: 100%;
       text-align: center;
       position: relative;
-      margin-top: 2px; /* Very small gap between image and caption */
+      margin-top: 5px;
     }
 
-    /* Number text (1/3 etc) */
-    .numbertext {
-      color: #000;
-      background-color: rgba(255,255,255,0.7);
-      font-size: 12px;
-      padding: 8px 12px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 5;
+    /* Number text */
+    .numbertext, .yeartext {
+      font-size: 14px; /* Adjust font size */
+      padding: 8px 12px; /* Adjust padding */
     }
 
-    .yeartext {
-      color: #000;
-      background-color: rgba(255,255,255,0.7);
-      font-size: 12px;
-      padding: 8px 12px;
-      position: absolute;
-      top: 0;
-      right: 0;
-      z-index: 5;
-    }
-
-    /* The dots/bullets/indicators */
+    /* Dots */
     .dot {
       cursor: pointer;
-      height: 15px;
-      width: 15px; 
-      margin: 0 2px;
+      height: 15px; /* Adjust size */
+      width: 15px; /* Adjust size */
+      margin: 0 4px; /* Adjust spacing */
       background-color: #bbb;
       border-radius: 50%;
       display: inline-block;
@@ -120,20 +96,28 @@
       background-color: #717171;
     }
 
-    /* Fading animation */
-    .fade {
-      animation-name: fade;
-      animation-duration: 1.5s;
+    /* Number text */
+    .numbertext {
+      position: absolute;
+      top: 10px; /* Align to the top */
+      left: 10px; /* Align to the left */
+      font-size: 16px; /* Adjust font size */
+      padding: 5px 10px; /* Adjust padding */
+      background-color: rgba(0, 0, 0, 0.5); /* Optional background for better visibility */
+      color: white;
+      border-radius: 5px;
     }
 
-    @keyframes fade {
-      from {opacity: .4} 
-      to {opacity: 1}
-    }
-
-    /* On smaller screens, decrease text size */
-    @media only screen and (max-width: 300px) {
-      .prev, .next,.text {font-size: 11px}
+    /* Year text */
+    .yeartext {
+      position: absolute;
+      top: 10px; /* Align to the top */
+      right: 10px; /* Align to the right */
+      font-size: 16px; /* Adjust font size */
+      padding: 5px 10px; /* Adjust padding */
+      background-color: rgba(0, 0, 0, 0.5); /* Optional background for better visibility */
+      color: white;
+      border-radius: 5px;
     }
   </style>
 </head>
